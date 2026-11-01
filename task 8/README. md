@@ -68,7 +68,7 @@ else:
         print("Production meets the profit target.")
 ```mermaid
        
-   flowchart TD
+    flowchart TD
     A([Start]) --> B[/Enter Product Name and Quantity/]
     B --> C[/Enter Material Cost per Unit/]
     C --> D[/Enter Labour Cost per Unit/]
