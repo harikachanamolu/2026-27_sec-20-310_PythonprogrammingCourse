@@ -67,7 +67,6 @@ else:
     if profit_percentage >= profit_target:
         print("Production meets the profit target.")
 ```mermaid
-       
     flowchart TD
     A([Start]) --> B[/Enter Product Name and Quantity/]
     B --> C[/Enter Material Cost per Unit/]
