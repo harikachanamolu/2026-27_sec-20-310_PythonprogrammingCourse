@@ -73,3 +73,41 @@ for i in range(1, len(bills)):
 
 if not found:
     print("No unusual bill increases found.")
+
+```mermaid
+       
+flowchart TD
+    A([Start]) --> B[/Enter Number of Months/]
+    B --> C[/Enter Previous Month Units/]
+    C --> D[/Enter Current Month Units/]
+    D --> E{Are Units Valid?}
+    E -- No --> F[Display Invalid Input]
+    F --> D
+    E -- Yes --> G{Units <= 100?}
+    G -- Yes --> H[Calculate Bill at Rs. 2 per Unit]
+    G -- No --> I{Units <= 200?}
+    I -- Yes --> J[First 100 at Rs. 2 and Remaining at Rs. 3]
+    I -- No --> K{Units <= 300?}
+    K -- Yes --> L[First 100 at Rs. 2, Next 100 at Rs. 3, Remaining at Rs. 5]
+    K -- No --> M[First 100 at Rs. 2, Next 100 at Rs. 3, Next 100 at Rs. 5, Remaining at Rs. 7]
+    H --> N[Add Fixed Charge Rs. 50]
+    J --> N
+    L --> N
+    M --> N
+    N --> O[Calculate 5 Percent Surcharge]
+    O --> P{Units <= 100?}
+    P -- Yes --> Q[Apply Rs. 20 Rebate]
+    P -- No --> R[No Rebate]
+    Q --> S[Calculate Final Bill]
+    R --> S
+    S --> T[Store Monthly Bill]
+    T --> U{More Months?}
+    U -- Yes --> C
+    U -- No --> V[Compare Monthly Bills]
+    V --> W{Bill Increased More Than 50 Percent?}
+    W -- Yes --> X[Display Unusual Increase Alert]
+    W -- No --> Y[Display Normal Bill]
+    X --> Z[Display Monthly Bills and Total]
+    Y --> Z
+    Z --> AA([Stop])
+```
