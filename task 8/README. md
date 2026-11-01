@@ -67,32 +67,42 @@ else:
     if profit_percentage >= profit_target:
         print("Production meets the profit target.")
 ```mermaid
+        
     flowchart TD
-    A([Start]) --> B[/Enter Product Name and Quantity/]
-    B --> C[/Enter Material Cost per Unit/]
-    C --> D[/Enter Labour Cost per Unit/]
-    D --> E[/Enter Wastage Cost per Unit/]
-    E --> F[/Enter Machine Cost per Unit/]
-    F --> G[/Enter Selling Price per Unit and Target Profit Percentage/]
-    G --> H{Are All Input Values Valid?}
-    H -- No --> I[Display Invalid Input]
-    I --> B
-    H -- Yes --> J[Calculate Total Cost per Unit]
-    J --> K[Add Material Labour Wastage and Machine Costs]
-    K --> L[Calculate Total Production Cost]
-    L --> M[Calculate Total Revenue]
-    M --> N[Calculate Profit]
-    N --> O{Is Profit Positive?}
-    O -- No --> P[Production Results in Loss or No Profit]
-    O -- Yes --> Q[Calculate Profit Percentage]
-    Q --> R{Does Profit Percentage Meet Target?}
-    R -- Yes --> S[Production Meets Profit Target]
-    R -- No --> T[Production Does Not Meet Profit Target]
-    P --> U[Generate Cost and Profit Report]
-    S --> U
-    T --> U
-    U --> V[/Display Total Cost Revenue Profit and Profit Percentage/]
-    V --> W([Stop]) 
+    A([Start]) --> B[/Enter Product Name and Production Quantity/]
+    B --> C[/Enter Material Cost/]
+    C --> D[/Enter Labour Charges/]
+    D --> E[/Enter Wastage Cost/]
+    E --> F[/Enter Machine Cost/]
+    F --> G[/Enter Selling Price per Unit/]
+    G --> H[/Enter Target Profit Percentage/]
+    H --> I{Are All Inputs Valid?}
+    I -- No --> J[Display Invalid Input]
+    J --> B
+    I -- Yes --> K[Calculate Total Material Cost]
+    K --> L[Calculate Total Labour Cost]
+    L --> M[Calculate Total Wastage Cost]
+    M --> N[Calculate Total Machine Cost]
+    N --> O[Calculate Total Production Cost]
+    O --> P[Calculate Total Revenue]
+    P --> Q[Calculate Profit or Loss]
+    Q --> R{Is Profit Greater Than Zero?}
+    R -- No --> S[Display Loss or No Profit]
+    R -- Yes --> T[Calculate Profit Percentage]
+    T --> U{Does Profit Percentage Meet Target?}
+    U -- Yes --> V[Display Target Achieved]
+    U -- No --> W[Display Target Not Achieved]
+    S --> X[Generate Profitability Report]
+    V --> X
+    W --> X
+    X --> Y[/Display Total Cost Revenue Profit and Profit Percentage/]
+    Y --> Z([Stop])
 ```
 
-  
+
+
+
+
+
+
+
