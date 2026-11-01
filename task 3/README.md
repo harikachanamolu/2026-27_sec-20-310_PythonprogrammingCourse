@@ -56,3 +56,14 @@ else:
 
         print("Amount Paid: Rs.", paid)
         print("Balance: Rs.", balance)
+
+        ```merimaid
+                1. Enter patient details and charges.
+2. Validate the charges.
+3. Calculate the total bill.
+4. Apply the applicable concession.
+5. Calculate the final bill.
+6. Validate the payment amount.
+7. Classify the patient as fully paid, partially paid, or unpaid.
+8. Display the bill and patient classification.
+        ```mermaid
