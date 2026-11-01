@@ -88,3 +88,34 @@ else:
         print("Event Financial Status: Budget Achieved")
     else:
         print("Event Financial Status: Budget Shortfall")
+```mermaid
+        
+    flowchart TD
+    A([Start]) --> B[/Enter Number of Participants/]
+    B --> C[/Enter Venue Cost/]
+    C --> D[/Enter Equipment Cost/]
+    D --> E[/Enter Catering Cost per Person/]
+    E --> F[/Enter Transport Cost/]
+    F --> G[/Enter Certificate Cost per Person/]
+    G --> H[/Enter Sponsorship Amount and Registration Fee per Person/]
+    H --> I{Are All Inputs Valid?}
+    I -- No --> J[Display Invalid Input]
+    J --> B
+    I -- Yes --> K[Calculate Total Fixed Cost]
+    K --> L[Calculate Total Variable Cost]
+    L --> M[Calculate Total Event Cost]
+    M --> N[Calculate Registration Contributions]
+    N --> O[Calculate Total Income Including Sponsorship]
+    O --> P[Calculate Profit or Shortfall]
+    P --> Q{Is Total Income >= Total Cost?}
+    Q -- Yes --> R[Display Event Budget Surplus]
+    Q -- No --> S[Calculate Sponsorship Shortfall]
+    R --> T{Is Registration Fee Greater Than Variable Cost per Person?}
+    S --> T
+    T -- Yes --> U[Calculate Minimum Break-Even Participants]
+    T -- No --> V[Display Break-Even Not Possible with Current Fee]
+    U --> W[Generate Financial Report]
+    V --> W
+    W --> X[/Display Total Cost Income Shortfall and Break-Even Count/]
+    X --> Y([Stop])
+```
