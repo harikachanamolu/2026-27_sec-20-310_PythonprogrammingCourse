@@ -264,3 +264,4 @@ Month 2: Bill increased by more than 50%.
 Month 3: Bill increased by more than 50%.
 
 Total Electricity Bill: Rs. 1355.50
+The Progressive Electricity Billing system calculates electricity bills accurately using different consumption slabs, fixed charges, surcharges, and rebates. It compares monthly bills and identifies unusual increases in electricity charges. This system helps households understand their electricity usage and manage their expenses efficiently.
