@@ -56,14 +56,40 @@ else:
 
         print("Amount Paid: Rs.", paid)
         print("Balance: Rs.", balance)
-
-        ```merimaid
-                1. Enter patient details and charges.
-2. Validate the charges.
-3. Calculate the total bill.
-4. Apply the applicable concession.
-5. Calculate the final bill.
-6. Validate the payment amount.
-7. Classify the patient as fully paid, partially paid, or unpaid.
-8. Display the bill and patient classification.
-        ```mermaid
+```mermaid
+            
+    flowchart TD
+    A([Start]) --> B[/Enter Number of Patients/]
+    B --> C[/Enter Patient Name and Age/]
+    C --> D[/Enter Consultation Charges/]
+    D --> E[/Enter Diagnostic Charges/]
+    E --> F[/Enter Treatment Charges/]
+    F --> G{Are Charges Valid?}
+    G -- No --> H[Display Invalid Charges]
+    H --> D
+    G -- Yes --> I[Calculate Total Bill]
+    I --> J{Is Age 60 or Above?}
+    J -- Yes --> K[Apply 20 Percent Concession]
+    J -- No --> L{Is Total Bill 5000 or Above?}
+    L -- Yes --> M[Apply 10 Percent Concession]
+    L -- No --> N[No Concession]
+    K --> O[Calculate Final Bill]
+    M --> O
+    N --> O
+    O --> P[/Enter Amount Paid/]
+    P --> Q{Is Payment Between Zero and Final Bill?}
+    Q -- No --> R[Display Invalid Payment]
+    R --> P
+    Q -- Yes --> S{Is Payment Equal to Final Bill?}
+    S -- Yes --> T[Classify as Fully Paid]
+    S -- No --> U{Is Payment Greater Than Zero?}
+    U -- Yes --> V[Classify as Partially Paid]
+    U -- No --> W[Classify as Unpaid]
+    T --> X[Display Patient Bill and Classification]
+    V --> X
+    W --> X
+    X --> Y{Are More Patients Available?}
+    Y -- Yes --> C
+    Y -- No --> Z([Stop])
+```   
+        
