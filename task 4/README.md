@@ -45,6 +45,20 @@ else:
     print("--------------------------------------")
     print("Net Salary        : Rs.", round(net_salary, 2))
     print("======================================")
+    Algorithm
+1. Start the program.
+2. Enter employee name and employee ID.
+3. Enter basic pay, allowances, overtime, and incentives.
+4. Validate all input values.
+5. Calculate gross salary by adding all salary components.
+6. Check the gross salary amount.
+7. Apply 5% deduction on the first ₹20,000.
+8. Apply 10% deduction on the next ₹20,000.
+9. Apply 15% deduction on the amount above ₹40,000.
+10. Calculate total deductions.
+11. Calculate net salary by subtracting deductions from gross salary.
+12. Generate and display the formatted salary statement.
+13. Stop the program.
 ```mermaid
            
     flowchart TD
@@ -72,3 +86,40 @@ else:
     S --> T[/Display Employee Details, Gross Salary, Deductions and Net Salary/]
     T --> U([Stop])
 ```
+START
+
+INPUT employee name and ID
+INPUT basic pay
+INPUT allowances
+INPUT overtime amount
+INPUT incentives
+
+IF any input is negative THEN
+    DISPLAY "Invalid Input"
+ELSE
+    gross_salary = basic_pay + allowances
+                   + overtime + incentives
+
+    IF gross_salary <= 20000 THEN
+        deduction = gross_salary * 5 / 100
+
+    ELSE IF gross_salary <= 40000 THEN
+        deduction = 20000 * 5 / 100
+                    + (gross_salary - 20000) * 10 / 100
+
+    ELSE
+        deduction = 20000 * 5 / 100
+                    + 20000 * 10 / 100
+                    + (gross_salary - 40000) * 15 / 100
+    END IF
+
+    net_salary = gross_salary - deduction
+
+    DISPLAY employee details
+    DISPLAY gross salary
+    DISPLAY total deduction
+    DISPLAY net salary
+END IF
+
+STOP
+The Employee Payroll and Deduction Analysis system successfully calculates gross salary using basic pay, allowances, overtime, and incentives. It applies progressive deductions based on salary slabs and calculates the final net salary. This system helps to prepare accurate salary statements and makes the payroll process simple and efficient.
