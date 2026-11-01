@@ -68,6 +68,22 @@ else:
     print("\nOther Eligible Plans:")
     for plan in eligible:
         print(plan["name"], "- Rs.", plan["cost"])
+        1. Start the program.
+2. Enter required data usage, validity, and budget.
+3. Enter the number of mobile plans.
+4. Enter plan name, cost, data limit, validity, and excess charge.
+5. Compare data usage with the plan's data limit.
+6. If usage exceeds the limit, calculate excess data charges.
+7. Calculate the total plan cost.
+8. Check whether the plan satisfies the validity requirement.
+9. Check whether the total cost is within the budget.
+10. Add eligible plans to the eligible list.
+11. Repeat the process for all mobile plans.
+12. If no eligible plan is available, display a message.
+13. Otherwise, select the plan with the lowest total cost.
+14. Display the most economical plan.
+15. Stop the program.
+
 ```mermaid
               
     flowchart TD
@@ -98,4 +114,74 @@ else:
     Q --> U([Stop])
     T --> U
    ```
+START
+
+INPUT data usage
+INPUT required validity
+INPUT budget
+INPUT number of mobile plans
+
+FOR each mobile plan
+
+    INPUT plan name
+    INPUT plan cost
+    INPUT data limit
+    INPUT validity
+    INPUT excess charge per GB
+
+    IF data usage > data limit THEN
+        excess data = data usage - data limit
+        excess cost = excess data * excess charge
+    ELSE
+        excess cost = 0
+    END IF
+
+    total cost = plan cost + excess cost
+
+    IF validity >= required validity AND total cost <= budget THEN
+        ADD plan to eligible list
+    ELSE
+        REJECT plan
+    END IF
+
+END FOR
+
+IF eligible list is empty THEN
+    DISPLAY "No suitable plan found"
+ELSE
+    SELECT plan with lowest total cost
+    DISPLAY selected plan details
+END IF
+
+STOP
+Enter required data usage in GB: 8
+Enter required validity in days: 28
+Enter your budget: 400
+
+Plan: Basic
+Excess Data: 6.0 GB
+Excess Charge: Rs. 120.0
+Total Cost: Rs. 319.0
+
+Plan: Standard
+Excess Data: 0 GB
+Excess Charge: Rs. 0
+Total Cost: Rs. 299
+
+Plan: Premium
+Excess Data: 0 GB
+Excess Charge: Rs. 0
+Total Cost: Rs. 499
+
+Plan: Unlimited
+Excess Data: 0 GB
+Excess Charge: Rs. 0
+Total Cost: Rs. 699
+
+===== BEST MOBILE PLAN =====
+Plan Name: Standard
+Total Cost: Rs. 299
+Validity: 28 days
+Most Economical Eligible Plan
+The Multi-Plan Telecommunications Cost Optimization system evaluates different mobile plans based on data usage, validity, and budget. It calculates excess data charges and compares the total costs of eligible plans. Finally, it identifies the most economical mobile plan, helping users select a suitable plan and manage their expenses efficiently.
 
