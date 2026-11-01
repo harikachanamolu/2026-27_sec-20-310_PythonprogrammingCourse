@@ -142,6 +142,22 @@ Assign ranks to eligible students.
 
 Display eligible students and their rank
 stop the progrem
+Algorithm
+1. Start the program.
+2. Enter the number of participants.
+3. Enter venue, equipment, and transport costs.
+4. Enter catering and certificate costs per participant.
+5. Enter the sponsorship amount.
+6. Enter the registration fee per participant.
+7. Calculate the total fixed cost.
+8. Calculate the variable cost per participant.
+9. Calculate the total event cost.
+10. Calculate registration income and total income.
+11. Compare total income with total event cost.
+12. Determine whether there is a surplus or shortfall.
+13. Calculate the minimum number of registrations required to break even.
+14. Display the complete financial report.
+15. Stop the program.
 ```mermaid
         
     flowchart TD
@@ -173,63 +189,96 @@ stop the progrem
     W --> X[/Display Total Cost Income Shortfall and Break-Even Count/]
     X --> Y([Stop])
 ```
+START
 
+INPUT number of participants
+INPUT venue cost
+INPUT equipment cost
+INPUT transport cost
+INPUT catering cost per participant
+INPUT certificate cost per participant
+INPUT sponsorship amount
+INPUT registration fee per participant
 
-BEGIN
+CALCULATE fixed cost
+    fixed_cost = venue cost + equipment cost + transport cost
 
-INPUT number_of_students
+CALCULATE variable cost per participant
+    variable_cost = catering cost + certificate cost
 
-CREATE eligible_list
+CALCULATE total variable cost
+    total_variable_cost = variable_cost * number of participants
 
-FOR each student
+CALCULATE total event cost
+    total_cost = fixed_cost + total_variable_cost
 
-    INPUT name, roll_number
-    INPUT aggregate_marks
-    INPUT subject_marks
-    INPUT attendance
-    INPUT family_income
+CALCULATE registration income
+    registration_income = registration fee * number of participants
 
-    IF aggregate_marks >= 75 AND
-       subject_marks >= 60 AND
-       attendance >= 75 AND
-       family_income <= 200000 THEN
+CALCULATE total income
+    total_income = registration_income + sponsorship amount
 
-        ADD student to eligible_list
+CALCULATE financial result
+    result = total_income - total_cost
 
-    ELSE
-        DISPLAY "Not Eligible"
+IF result >= 0 THEN
+    DISPLAY "Event has a surplus"
+ELSE
+    DISPLAY "Event has a shortfall"
+END IF
+
+CALCULATE break-even registration count
+
+IF registration fee > variable cost THEN
+    break_even = CEILING(
+        (fixed_cost - sponsorship amount) /
+        (registration fee - variable cost)
+    )
+    IF break_even < 0 THEN
+        break_even = 0
     END IF
+    DISPLAY break_even
+ELSE
+    DISPLAY "Break-even is not possible with this registration fee"
+END IF
 
-END FOR
+DISPLAY total cost
+DISPLAY total income
+DISPLAY result
 
-SORT eligible_list BY
-    aggregate_marks DESCENDING
-    subject_marks DESCENDING
-    attendance DESCENDING
-    family_income ASCENDING
-    roll_number ASCENDING
+STOP
+======= CAMPUS EVENT FINANCIAL PLANNING =======
 
-ASSIGN ranks to eligible students
+Enter number of participants: 100
 
-DISPLAY eligible students with ranks
+Enter venue cost: 10000
+Enter equipment cost: 5000
+Enter transport cost: 3000
 
-END
-========== UNIVERSITY SCHOLARSHIP ALLOCATION ==========
+Enter catering cost per participant: 100
+Enter certificate cost per participant: 20
 
-Eligible Students:
+Enter sponsorship amount: 8000
+Enter registration fee per participant: 200
 
-Rank  Name      Roll No   Aggregate   Subject   Attendance   Income
---------------------------------------------------------------------
-1     Priya     104       90%         85%       92%          120000
-2     Veda      102       90%         80%       95%          180000
-3     Harika    101       85%         75%       90%          150000
+------------- FINANCIAL REPORT -------------
 
-Not Eligible Students:
-Nomitha - Aggregate marks below 75%
+Fixed Cost: Rs. 18000
+Variable Cost Per Participant: Rs. 120
+Total Variable Cost: Rs. 12000
 
-Total Students: 4
-Eligible Students: 3
-Not Eligible Students: 1
+Total Event Cost: Rs. 30000
 
-Scholarship Allocation Completed Successfully!
-The University Scholarship Allocation system evaluates students based on aggregate marks, subject-wise marks, attendance, and family income. It identifies eligible students and ranks them according to their performance. It also resolves ties using predefined rules, ensuring fair and transparent scholarship selection.
+Registration Income: Rs. 20000
+Sponsorship Amount: Rs. 8000
+
+Total Income: Rs. 28000
+
+Financial Result: Rs. 2000
+Status: Shortfall
+
+Minimum Registration Count for Break-Even: 82
+
+--------------------------------------------
+Thank you!
+The Campus Event Financial Planning system calculates fixed and variable event costs, registration income, and sponsorship contributions. It identifies whether the event has a financial surplus or shortfall and determines the minimum number of registrations required to break even. This system helps colleges plan events, manage expenses, and make better financial decisions.
