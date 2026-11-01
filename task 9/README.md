@@ -74,3 +74,31 @@ if len(expenses) > 0:
     print("Amount: Rs.", round(largest["amount"], 2))
 else:
     print("No valid expenses entered.")
+```mermaid
+     
+    flowchart TD
+    A([Start]) --> B[/Enter Travel Budget in Base Currency/]
+    B --> C[/Enter Number of Expense Categories/]
+    C --> D[/Enter Category Name and Expense Amount/]
+    D --> E[/Enter Foreign Currency and Exchange Rate/]
+    E --> F{Is Input Data Valid?}
+    F -- No --> G[Display Invalid Input]
+    G --> D
+    F -- Yes --> H[Convert Expense into Base Currency]
+    H --> I[Calculate Conversion Fee]
+    I --> J[Add Conversion Fee to Converted Amount]
+    J --> K[Store Category Expense]
+    K --> L{Are More Categories Available?}
+    L -- Yes --> D
+    L -- No --> M[Calculate Total Travel Expenses]
+    M --> N[Compare Total Expenses with Budget]
+    N --> O{Are Expenses Within Budget?}
+    O -- Yes --> P[Display Budget Surplus]
+    O -- No --> Q[Calculate Budget Shortfall]
+    P --> R[Identify Largest Expense Category]
+    Q --> R
+    R --> S[Generate Travel Budget Report]
+    S --> T[/Display Converted Expenses, Fees, Total Spending, Budget Status and Largest Category/]
+    T --> U([Stop])
+```
+ 
