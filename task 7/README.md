@@ -80,3 +80,34 @@ print("--------------------------------------")
 print("Final Bill     : Rs.", round(final_bill, 2))
 print("======================================")
 print("Thank you for shopping!")
+```mermaid
+       
+    flowchart TD
+    A([Start]) --> B[/Enter Number of Products/]
+    B --> C[/Enter Product Name, Category, Price and Quantity/]
+    C --> D{Are Product Details Valid?}
+    D -- No --> E[Display Invalid Product Details]
+    E --> C
+    D -- Yes --> F[Calculate Item Total]
+    F --> G[Apply Category-Specific Tax]
+    G --> H[Add Item Amount and Tax to Subtotal]
+    H --> I{Are More Products Available?}
+    I -- Yes --> C
+    I -- No --> J[Calculate Total Subtotal]
+    J --> K{Is Subtotal >= 10000?}
+    K -- Yes --> L[Apply 20 Percent Discount]
+    K -- No --> M{Is Subtotal >= 5000?}
+    M -- Yes --> N[Apply 10 Percent Discount]
+    M -- No --> O{Is Subtotal >= 2000?}
+    O -- Yes --> P[Apply 5 Percent Discount]
+    O -- No --> Q[No Discount]
+    L --> R[Check Maximum Discount Limit of Rs. 2000]
+    N --> R
+    P --> R
+    Q --> S[Calculate Final Discount]
+    R --> S
+    S --> T[Calculate Final Bill]
+    T --> U[Generate Itemized Invoice]
+    U --> V[/Display Products, Quantities, Taxes, Discount and Final Amount/]
+    V --> W([Stop])
+ ```
