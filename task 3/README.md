@@ -78,7 +78,7 @@ Algorithm
 12. Display the patient bill and payment classification.
 13. Repeat for all patients.
 14. Stop the program.
-            
+```mermaid        
     flowchart TD
     A([Start]) --> B[/Enter Number of Patients/]
     B --> C[/Enter Patient Name and Age/]
