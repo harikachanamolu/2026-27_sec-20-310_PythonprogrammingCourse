@@ -45,3 +45,30 @@ else:
     print("--------------------------------------")
     print("Net Salary        : Rs.", round(net_salary, 2))
     print("======================================")
+    ```mermaid
+           
+flowchart TD
+    A([Start]) --> B[/Enter Employee Name and ID/]
+    B --> C[/Enter Basic Pay/]
+    C --> D[/Enter Allowances/]
+    D --> E[/Enter Overtime Amount/]
+    E --> F[/Enter Incentives/]
+    F --> G{Are All Values Valid?}
+    G -- No --> H[Display Invalid Input]
+    H --> C
+    G -- Yes --> I[Calculate Gross Salary]
+    I --> J[Gross = Basic Pay + Allowances + Overtime + Incentives]
+    J --> K{Gross Salary <= 20000?}
+    K -- Yes --> L[Deduction = 5 Percent of Gross Salary]
+    K -- No --> M{Gross Salary <= 40000?}
+    M -- Yes --> N[Deduction = 5 Percent on First 20000 and 10 Percent on Remaining]
+    M -- No --> O[Deduction = 5 Percent on First 20000, 10 Percent on Next 20000, 15 Percent on Remaining]
+    L --> P[Calculate Total Deduction]
+    N --> P
+    O --> P
+    P --> Q[Calculate Net Salary]
+    Q --> R[Net Salary = Gross Salary - Total Deduction]
+    R --> S[Generate Formatted Salary Statement]
+    S --> T[/Display Employee Details, Gross Salary, Deductions and Net Salary/]
+    T --> U([Stop])
+```
