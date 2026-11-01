@@ -55,43 +55,29 @@ else:
         print("Family Income:", student["income"])
 print("\nTotal Eligible Students:", len(students))
 
-Algorithm:
-University Scholarship Allocation
-Step 1: Start the program.
-
-Step 2: Read the number of students.
-
-Step 3: Enter the details of each student:
-- Student name
-- Roll number
-- Aggregate marks
-- Subject-wise marks
-- Attendance percentage
-- Family annual income
-Step 4: Check whether the entered details are valid.
-
-Step 5: Check the eligibility criteria:
-- Aggregate marks must be 75% or above.
-- Subject-wise marks must be 60% or above.
-- Attendance must be 75% or above.
-- Family annual income must be ₹2,00,000 or below.
-Step 6: If all conditions are satisfied, add the student to the eligible students list. Otherwise, mark the student as not eligible.
-
-Step 7: Repeat Steps 3–6 until all student details are entered.
-
-Step 8: Sort the eligible students in descending order based on aggregate marks.
-
-Step 9: Resolve ties using the following rules:
-1. Higher aggregate marks get higher priority.
-2. If aggregate marks are equal, compare subject-wise marks.
-3. If subject marks are equal, compare attendance percentage.
-4. If attendance is equal, give priority to the student with lower family income.
-5. If all values are equal, sort by roll number in ascending order.
-Step 10: Assign ranks to all eligible students.
-
-Step 11: Display the eligible students with their details and rankings.
-
-Step 12: Stop the program.
+Algorithm
+1. Start the program.
+2. Enter the number of students.
+3. Enter student name and roll number.
+4. Enter aggregate marks, subject-wise marks, attendance percentage, and family income.
+5. Check whether the entered details are valid.
+6. Check the eligibility criteria:
+   - Aggregate marks must be 75% or above.
+   - Subject-wise marks must be 60% or above.
+   - Attendance must be 75% or above.
+   - Family income must be ₹2,00,000 or below.
+7. If all conditions are satisfied, add the student to the eligible list.
+8. Otherwise, mark the student as not eligible.
+9. Repeat the process for all students.
+10. Sort eligible students according to aggregate marks in descending order.
+11. Resolve ties using:
+    - Higher subject-wise marks.
+    - Higher attendance percentage.
+    - Lower family income.
+    - Lower roll number.
+12. Assign ranks to eligible students.
+13. Display eligible students and their rankings.
+14. Stop the program
 
 ```mermaid
        
@@ -144,6 +130,97 @@ Step 12: Stop the program.
     W --> X[/Display Eligible Students and Rankings/]
     X --> Y([End])
 ```
+START
+
+INPUT number_of_students
+
+CREATE eligible_list
+
+FOR each student from 1 to number_of_students
+
+    INPUT name
+    INPUT roll_number
+    INPUT aggregate_marks
+    INPUT subject_marks
+    INPUT attendance
+    INPUT family_income
+
+    IF aggregate_marks >= 75 AND
+       subject_marks >= 60 AND
+       attendance >= 75 AND
+       family_income <= 200000 THEN
+
+          ADD student to eligible_list
+
+    ELSE
+          DISPLAY "Not Eligible"
+    END IF
+
+END FOR
+
+SORT eligible_list BY
+    aggregate_marks DESCENDING,
+    subject_marks DESCENDING,
+    attendance DESCENDING,
+    family_income ASCENDING,
+    roll_number ASCENDING
+
+ASSIGN RANKS TO ELIGIBLE STUDENTS
+
+DISPLAY eligible students and their ranks
+
+STOP
+Enter Number of Students: 3
+
+Enter Student 1 Details:
+Name: Harika
+Roll Number: 101
+Aggregate Marks: 85
+Subject Marks: 80
+Attendance: 90
+Family Income: 150000
+
+Enter Student 2 Details:
+Name: Veda
+Roll Number: 102
+Aggregate Marks: 78
+Subject Marks: 70
+Attendance: 85
+Family Income: 180000
+
+Enter Student 3 Details:
+Name: Nomitha
+Roll Number: 103
+Aggregate Marks: 65
+Subject Marks: 55
+Attendance: 80
+Family Income: 100000
+
+        UNIVERSITY SCHOLARSHIP RESULTS
+
+------------------------------------------------
+Name       Roll No    Aggregate    Status    Rank
+------------------------------------------------
+Harika       101        85%       Eligible    1
+Veda         102        78%       Eligible    2
+Nomitha      103        65%       Not Eligible  -
+------------------------------------------------
+
+Scholarship Eligibility Criteria:
+Aggregate Marks >= 75%
+Subject Marks >= 60%
+Attendance >= 75%
+Family Income <= Rs. 2,00,000
+
+Total Students: 3
+Eligible Students: 2
+Not Eligible Students: 1
+
+Highest Ranked Student: Harika
+Scholarship Status: Eligible
+
+             End of Program
+             The University Scholarship Allocation system successfully identifies eligible students based on aggregate marks, subject-wise marks, attendance, and family income. It ranks eligible students using predefined rules and resolves ties fairly. This system makes the scholarship selection process simple, accurate, transparent, and efficient.
 
 
 
