@@ -68,3 +68,6 @@ else:
     print("\nOther Eligible Plans:")
     for plan in eligible:
         print(plan["name"], "- Rs.", plan["cost"])
+        ```mermaid
+               Multi-Plan Telecommunications Cost Optimization: Evaluate several mobile plans against usage, validity, and budget constraints; calculate excess charges and identify the most economical eligible plan. 
+               ```
