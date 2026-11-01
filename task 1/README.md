@@ -55,7 +55,7 @@ else:
         print("Family Income:", student["income"])
 
 print("\nTotal Eligible Students:", len(students))
-```memaid
+```mermaid
        
   flowchart TD
     A([Start]) --> B[/Enter Number of Students/]
