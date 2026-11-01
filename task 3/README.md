@@ -56,7 +56,6 @@ else:
 
         print("Amount Paid: Rs.", paid)
         print("Balance: Rs.", balance)
-```mermaid
 Algorithm
 1. Start the program.
 2. Enter the number of patients.
