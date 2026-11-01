@@ -88,6 +88,60 @@ else:
         print("Event Financial Status: Budget Achieved")
     else:
         print("Event Financial Status: Budget Shortfall")
+        Start the program.
+
+
+
+Read the number of students.
+
+
+
+Enter each student's name, roll number, aggregate marks, subject-wise marks, attendance, and family income.
+
+
+
+Validate the entered details.
+
+
+
+Check the eligibility conditions:
+- Aggregate marks must be at least 75%.
+- Subject-wise marks must be at least 60%.
+- Attendance must be at least 75%.
+- Family annual income must not exceed ₹2,00,000.
+
+
+
+If all conditions are satisfied, add the student to the eligible list.
+
+
+
+Otherwise, mark the student as not eligible.
+
+
+
+Repeat the process for all students.
+
+
+
+Sort eligible students by aggregate marks in descending order.
+
+
+
+Resolve ties using:
+- Higher subject-wise marks.
+- Higher attendance.
+- Lower family income.
+- Lower roll number.
+
+
+
+Assign ranks to eligible students.
+
+
+
+Display eligible students and their rank
+stop the progrem
 ```mermaid
         
     flowchart TD
@@ -119,3 +173,63 @@ else:
     W --> X[/Display Total Cost Income Shortfall and Break-Even Count/]
     X --> Y([Stop])
 ```
+
+
+BEGIN
+
+INPUT number_of_students
+
+CREATE eligible_list
+
+FOR each student
+
+    INPUT name, roll_number
+    INPUT aggregate_marks
+    INPUT subject_marks
+    INPUT attendance
+    INPUT family_income
+
+    IF aggregate_marks >= 75 AND
+       subject_marks >= 60 AND
+       attendance >= 75 AND
+       family_income <= 200000 THEN
+
+        ADD student to eligible_list
+
+    ELSE
+        DISPLAY "Not Eligible"
+    END IF
+
+END FOR
+
+SORT eligible_list BY
+    aggregate_marks DESCENDING
+    subject_marks DESCENDING
+    attendance DESCENDING
+    family_income ASCENDING
+    roll_number ASCENDING
+
+ASSIGN ranks to eligible students
+
+DISPLAY eligible students with ranks
+
+END
+========== UNIVERSITY SCHOLARSHIP ALLOCATION ==========
+
+Eligible Students:
+
+Rank  Name      Roll No   Aggregate   Subject   Attendance   Income
+--------------------------------------------------------------------
+1     Priya     104       90%         85%       92%          120000
+2     Veda      102       90%         80%       95%          180000
+3     Harika    101       85%         75%       90%          150000
+
+Not Eligible Students:
+Nomitha - Aggregate marks below 75%
+
+Total Students: 4
+Eligible Students: 3
+Not Eligible Students: 1
+
+Scholarship Allocation Completed Successfully!
+The University Scholarship Allocation system evaluates students based on aggregate marks, subject-wise marks, attendance, and family income. It identifies eligible students and ranks them according to their performance. It also resolves ties using predefined rules, ensuring fair and transparent scholarship selection.
