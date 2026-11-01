@@ -93,10 +93,7 @@ else:
     S --> U
     T --> U
     U --> V[/Display Total Cost Revenue Profit and Profit Percentage/]
-    V --> W([Stop])
+    V --> W([Stop]) 
+```
 
-    else:
-        print("Production does not meet the profit target.")
-
-    print("Expected Profit Target:", profit_target, "%")
-   ```
+  
