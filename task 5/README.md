@@ -68,6 +68,34 @@ else:
     print("\nOther Eligible Plans:")
     for plan in eligible:
         print(plan["name"], "- Rs.", plan["cost"])
-        ```mermaid
-               Multi-Plan Telecommunications Cost Optimization: Evaluate several mobile plans against usage, validity, and budget constraints; calculate excess charges and identify the most economical eligible plan. 
-               ```
+```mermaid
+              
+    flowchart TD
+    A([Start]) --> B[/Enter Number of Mobile Plans/]
+    B --> C[/Enter Data Usage, Required Validity and Budget/]
+    C --> D[/Enter Plan Name, Plan Cost, Data Limit, Validity and Excess Charge/]
+    D --> E{Is Plan Data Valid?}
+    E -- No --> F[Display Invalid Plan Details]
+    F --> D
+    E -- Yes --> G{Is Data Usage Greater Than Data Limit?}
+    G -- Yes --> H[Calculate Excess Data Charges]
+    G -- No --> I[Excess Charge = Zero]
+    H --> J[Calculate Total Plan Cost]
+    I --> J
+    J --> K{Does Plan Meet Required Validity?}
+    K -- No --> L[Reject Plan]
+    K -- Yes --> M{Is Total Cost Within Budget?}
+    M -- No --> L
+    M -- Yes --> N[Add Plan to Eligible List]
+    L --> O{Are More Plans Available?}
+    N --> O
+    O -- Yes --> D
+    O -- No --> P{Is Eligible List Empty?}
+    P -- Yes --> Q[Display No Suitable Plan Found]
+    P -- No --> R[Compare Total Costs of Eligible Plans]
+    R --> S[Select Plan with Lowest Total Cost]
+    S --> T[/Display Most Economical Plan and Cost Details/]
+    Q --> U([Stop])
+    T --> U
+   ```
+
