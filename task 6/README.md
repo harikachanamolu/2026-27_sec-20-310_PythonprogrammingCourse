@@ -85,6 +85,46 @@ if cancel.lower() == "yes":
     print("\n===== CANCELLATION DETAILS =====")
     print("Cancellation Penalty: Rs.", round(penalty, 2))
     print("Refund Amount: Rs.", round(refund, 2))
+```mermaid
+           
+   flowchart TD
+    A([Start]) --> B[/Enter Number of Passengers/]
+    B --> C[/Enter Passenger Name, Age and Travel Distance/]
+    C --> D[/Select Travel Class/]
+    D --> E{Is Travel Class Valid?}
+    E -- No --> F[Display Invalid Class]
+    F --> D
+    E -- Yes --> G{Is Distance Valid?}
+    G -- No --> H[Display Invalid Distance]
+    H --> C
+    G -- Yes --> I[Calculate Base Fare According to Class]
+    I --> J{Is Distance <= 100 KM?}
+    J -- Yes --> K[Apply Full Rate]
+    J -- No --> L{Is Distance <= 500 KM?}
+    L -- Yes --> M[Apply 90 Percent Rate to Distance Above 100 KM]
+    L -- No --> N[Apply 90 Percent Rate for 101-500 KM and 80 Percent Above 500 KM]
+    K --> O[Calculate Fare]
+    M --> O
+    N --> O
+    O --> P{Is Age Below 12?}
+    P -- Yes --> Q[Apply 50 Percent Concession]
+    P -- No --> R{Is Age 60 or Above?}
+    R -- Yes --> S[Apply 40 Percent Concession]
+    R -- No --> T[No Age Concession]
+    Q --> U[Add Reservation Fee of Rs. 50]
+    S --> U
+    T --> U
+    U --> V[Calculate Final Fare]
+    V --> W{Is Reservation Cancelled?}
+    W -- Yes --> X[Calculate 20 Percent Cancellation Penalty]
+    W -- No --> Y[Confirm Reservation]
+    X --> Z[Calculate Refund Amount]
+    Y --> AA[/Display Passenger Fare and Reservation Details/]
+    Z --> AA
+    AA --> AB{Are More Passengers Available?}
+    AB -- Yes --> C
+    AB -- No --> AC([Stop])
+```
 
 else:
     print("Reservation Confirmed!")
