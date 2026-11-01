@@ -45,9 +45,9 @@ else:
     print("--------------------------------------")
     print("Net Salary        : Rs.", round(net_salary, 2))
     print("======================================")
-    ```mermaid
+```mermaid
            
-         flowchart TD
+    flowchart TD
     A([Start]) --> B[/Enter Employee Name and ID/]
     B --> C[/Enter Basic Pay/]
     C --> D[/Enter Allowances/]
