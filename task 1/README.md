@@ -55,6 +55,57 @@ else:
         print("Family Income:", student["income"])
 
 print("\nTotal Eligible Students:", len(students))
+```memaid
+       
+  flowchart TD
+    A([Start]) --> B[/Enter Number of Students/]
+    B --> C[/Enter Student Name, Roll Number/]
+    C --> D[/Enter Aggregate Marks, Subject Marks, Attendance and Family Income/]
+    D --> E{Are Input Values Valid?}
+
+    E -- No --> F[Display Invalid Details]
+    F --> C
+
+    E -- Yes --> G{Aggregate Marks >= 75%?}
+
+    G -- No --> H[Student Not Eligible]
+    G -- Yes --> I{Subject Marks >= 60%?}
+
+    I -- No --> H
+    I -- Yes --> J{Attendance >= 75%?}
+
+    J -- No --> H
+    J -- Yes --> K{Family Income <= 200000?}
+
+    K -- No --> H
+    K -- Yes --> L[Add Student to Eligible List]
+
+    H --> M{More Students?}
+    L --> M
+
+    M -- Yes --> C
+    M -- No --> N[Sort Eligible Students by Aggregate Marks]
+
+    N --> O{Aggregate Marks Equal?}
+    O -- Yes --> P[Compare Subject Marks]
+    P --> Q{Subject Marks Equal?}
+
+    Q -- Yes --> R[Compare Attendance]
+    R --> S{Attendance Equal?}
+
+    S -- Yes --> T[Compare Family Income]
+    T --> U{Income Equal?}
+
+    U -- Yes --> V[Sort by Roll Number]
+    U -- No --> W[Assign Rank]
+    S -- No --> W
+    Q -- No --> W
+    O -- No --> W
+
+    V --> W
+    W --> X[/Display Eligible Students and Rankings/]
+    X --> Y([End])
+```
 
 
 
